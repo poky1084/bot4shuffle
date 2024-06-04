@@ -640,7 +640,7 @@ function startCrash(){
 								if(run_clicked){
 								
 									if(game == "crash" && crash_bet_placed == false){
-										//crash_bet_placed = true
+										crash_bet_placed = true
 		
 										crashbet(amount, target_multi);
 									} 
@@ -872,13 +872,18 @@ function startCrash(){
 
 
 function datacrash(json){
-	if(json.data.hasOwnProperty("crashPlay")){
-		
-		if(json.data.crashPlay.hasOwnProperty("shuffleOriginalActions")){
-				let betx = json.data.crashPlay.shuffleOriginalActions[0].action.crash.betAt
-				let betamt = json.data.crashPlay.amount
-				crash_bet_placed = true;
-				log("Crash bet placed. bet: " + betamt + " at " + betx)
+	if(json.errors != undefined){
+		crash_bet_placed = false;
+		log(json.errors[0].message)
+	} else {
+		if(json.data.hasOwnProperty("crashPlay")){
+			
+			if(json.data.crashPlay.hasOwnProperty("shuffleOriginalActions")){
+					let betx = json.data.crashPlay.shuffleOriginalActions[0].action.crash.betAt
+					let betamt = json.data.crashPlay.amount
+					crash_bet_placed = true;
+					log("Crash bet placed. bet: " + betamt + " at " + betx)
+			}
 		}
 	}
 }
