@@ -640,7 +640,7 @@ function startCrash(){
 								if(run_clicked){
 								
 									if(game == "crash" && crash_bet_placed == false){
-										crash_bet_placed = true
+										//crash_bet_placed = true
 		
 										crashbet(amount, target_multi);
 									} 
