@@ -901,7 +901,7 @@ function crashbet(betsize, target_multi){
     "variables": {
         "data": {
             "currency": currency.toUpperCase(),
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "betAt": target_multi.toFixed(2)
         }
     },
@@ -1283,7 +1283,7 @@ function LimboBet(betsize, target_multi){
     "operationName": "LimboPlay",
     "variables": {
         "data": {
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "bet": target_multi.toFixed(2),
             "currency": currency.toUpperCase(),
             "windowId": randomString(10)
@@ -1348,7 +1348,7 @@ function DiceBet(betsize, chance, bethigh){
     "operationName": "DicePlay",
     "variables": {
         "data": {
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "bet": JSON.stringify(target),
             "currency": currency.toUpperCase(),
             "direction": cond
@@ -1383,7 +1383,7 @@ function minebet(betsize, fieldcount, minecount){
     "variables": {
         "data": {
             "selected": fieldcount,
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "currency": currency.toUpperCase(),
             "minesCount": minecount,
             "autoBetInfo": {
@@ -1437,7 +1437,7 @@ function kenobet(betsize, kenoselected, kenorisk){
     "operationName": "KenoPlay",
     "variables": {
         "data": {
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "currency": currency.toUpperCase(),
             "risk": keno_risk.toUpperCase(),
             "selected": kenoselected,
@@ -1491,7 +1491,7 @@ function plinkobet(betsize, plinkorows, plinkorisk){
     "operationName": "PlinkoPlay",
     "variables": {
         "data": {
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "currency": currency.toUpperCase(),
             "risk": plinko_risk,
             "rows": plinkorows,
@@ -1545,7 +1545,7 @@ function wheelbet(betsize, wheelsegments, wheelrisk){
     "operationName": "WheelPlay",
     "variables": {
         "data": {
-            "amount": parseFloat(betsize).tofixed(8),
+            "amount": parseFloat(betsize).toFixed(8),
             "currency": currency.toUpperCase(),
             "risk": wheelrisk.toUpperCase(),
             "segments": wheel_segments,
