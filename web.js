@@ -78,7 +78,8 @@ let rows = 8
 let segments = 10
 let chips = [{"value":"colorBlack", "amount":0.0001}]
 let multiplier_start = 1
- 
+let crash_bet_possible = true;
+
 let kenorisk = risk
 let	kenoselected = numbers
 let	minecount = mines
@@ -414,6 +415,8 @@ function startCrash(){
 					
 					document.getElementById("result").innerHTML = "Crash at " + parseFloat(obj.payload.data.crashEventUpdate.crashPoint).toFixed(2) + 'x'
 					
+					crash_bet_possible = true
+					
 					if(crash_bet_placed){
 						crash_bet_placed = false
 						
@@ -639,9 +642,9 @@ function startCrash(){
 						if(obj.payload.data.crashEventUpdate.nextRoundIn < 5000 && obj.payload.data.crashEventUpdate.nextRoundIn > 200){
 								if(run_clicked){
 								
-									if(game == "crash" && crash_bet_placed == false){
+									if(game == "crash" && crash_bet_possible == true){
 										crash_bet_placed = true
-		
+										crash_bet_possible = false
 										crashbet(amount, target_multi);
 									} 
 								}	
@@ -873,7 +876,7 @@ function startCrash(){
 
 function datacrash(json){
 	if(json.errors != undefined){
-		crash_bet_placed = false;
+		crash_bet_possible = false;
 		log(json.errors[0].message)
 	} else {
 		if(json.data.hasOwnProperty("crashPlay")){
