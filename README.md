@@ -3,7 +3,7 @@ a javascript bot for Shuffle.com casino.
 the strategy script must be coded in javascript, and not Lua script. 
 
 # Videos: <br /> 
-install extension:  <br />
+install extension: https://odysee.com/@poky1084:8/bot4shuffle:f <br />
 install console:  <br />
 
 # Info: <br />
