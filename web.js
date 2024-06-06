@@ -1349,7 +1349,7 @@ function DiceBet(betsize, chance, bethigh){
     "variables": {
         "data": {
             "amount": parseFloat(betsize).toFixed(8),
-            "bet": JSON.stringify(target),
+            "bet": target.toFixed(2),
             "currency": currency.toUpperCase(),
             "direction": cond
         }
