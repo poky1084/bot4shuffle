@@ -268,6 +268,21 @@ if (localStorage.getItem("themebot") != null) {
 userBalances();
 startScoket();
 startCrash();
+
+
+	const isMobile = navigator.maxTouchPoints > 2;
+	if (isMobile) {
+		document.getElementById("window").style.overflowY = "visible";
+		document.getElementById("window").style.overflowX = "visible";
+		document.getElementById("window").style.width = "570px"
+		document.getElementById("wdbLog").style.width = "570px"
+		document.getElementsByClassName("tbl")[0].children[0].children[0].getElementsByTagName("td")[1].style.display = "block"
+		document.getElementsByClassName("tbl")[0].children[0].children[0].getElementsByTagName("td")[0].style.display = "block"
+		document.getElementsByClassName("tbl")[0].getElementsByTagName("td")[0].style.display =  "block"
+		document.getElementsByClassName("tbl")[0].getElementsByTagName("td")[1].style.display =  "block"
+		document.getElementsByClassName("tbl")[0].getElementsByTagName("td")[2].style.display =  "block"
+		document.getElementsByClassName("tbl")[0].getElementsByTagName("td")[12].style.display = "block"
+	}
 };
 
 // drag and drop bot
@@ -377,14 +392,18 @@ function startScoket(){
   
   websocket.onerror = (error) => {
     
-	startScoket();
+	setTimeout(() => {
+			startScoket();
+	}, "1000");
 	
   };
 
   
   websocket.onclose = (event) => {
 
-	startScoket();
+	setTimeout(() => {
+			startScoket();
+	}, "1000");
 	
   };
 }
@@ -862,14 +881,19 @@ function startCrash(){
   
   websocket.onerror = (error) => {
     
-	startCrash();
+	setTimeout(() => {
+			startCrash();
+	}, "1000");
+	
 	
   };
 
   
   websocket.onclose = (event) => {
 
-	startCrash();
+	setTimeout(() => {
+			startCrash();
+	}, "1000");
 	
   };
 }
@@ -978,7 +1002,7 @@ function log(val){
 	row.appendChild(tdtext);
 	table2.prepend(row);
 	
-	if (table2.rows.length > 100)
+	if (table2.rows.length > 15)
 	{
 		table2.deleteRow(table2.rows.length - 1);
 	}
