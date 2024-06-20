@@ -347,7 +347,7 @@ function startScoket(){
 	let websocket = new WebSocket('wss://subscription-temp.' + window.location.host + '/graphql', 'graphql-transport-ws');
     
   websocket.onopen = () => {
- 
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
     websocket.send(JSON.stringify({"type":"connection_init","payload":{"x-correlation-id":localStorage.getItem('BROWSER_ID') + "-" + randomString(21) + "-t::" + localStorage.getItem('CORRELATION_USER_ID'),"authorization":token}}));
   };
 
@@ -416,7 +416,7 @@ function startCrash(){
 	let websocket = new WebSocket('wss://subscription.' + window.location.host + '/graphql', 'graphql-transport-ws');
     
   websocket.onopen = () => {
- 
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
     websocket.send(JSON.stringify({"type":"connection_init","payload":{"x-correlation-id":localStorage.getItem('BROWSER_ID') + "-" + randomString(21) + "-t::" + localStorage.getItem('CORRELATION_USER_ID'),"authorization":token}}));
   };
 
@@ -919,7 +919,7 @@ function datacrash(json){
 
 
 function crashbet(betsize, target_multi){
-	
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 	
 	var body = {
     "operationName": "CrashPlay",
@@ -955,7 +955,7 @@ function crashbet(betsize, target_multi){
 
 
 function vault(e){
-
+token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
  var client = e;
  if(client == undefined){
 	return log("Please specify vault amount.")
@@ -1212,7 +1212,7 @@ function resetChart() {
 }
 
 function resetseed(e){
-
+token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
  var client = e;
  if(client == undefined){
 	client = randomString(10);
@@ -1250,7 +1250,7 @@ function outseed(json){
 
 
 function userBalances(){
-
+token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 var body = {
 	"operationName": "GetMyProfile",
 	"variables": {},
@@ -1306,6 +1306,7 @@ function outbals(json){
 }
 
 function LimboBet(betsize, target_multi){
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 	var body = {
     "operationName": "LimboPlay",
     "variables": {
@@ -1360,7 +1361,7 @@ function op(roll, condition, target) {
 
 function DiceBet(betsize, chance, bethigh){
 	
-	
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 	var target = 49.5
 	if(bethigh == false){
 		target = chance
@@ -1447,6 +1448,7 @@ function minebet(betsize, fieldcount, minecount){
 }
 
 function kenobet(betsize, kenoselected, kenorisk){
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 	let keno_risk = "LOW_RISK"
 	if(kenorisk.indexOf("low") >= 0){
 		keno_risk = "LOW_RISK"
@@ -1503,6 +1505,7 @@ function kenobet(betsize, kenoselected, kenorisk){
 }
 
 function plinkobet(betsize, plinkorows, plinkorisk){
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 	let plinko_risk = "LOW_RISK"
 	if(plinkorisk.indexOf("low") >= 0){
 		plinko_risk = "LOW_RISK"
@@ -1551,6 +1554,7 @@ function plinkobet(betsize, plinkorows, plinkorisk){
 }
 
 function wheelbet(betsize, wheelsegments, wheelrisk){
+	token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 	let wheel_segments = "TEN"
 	if(wheelsegments == 10){
 		wheel_segments = "TEN"
