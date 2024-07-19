@@ -2233,9 +2233,9 @@ function data(json){
 			
 			lastBet.amount = parseFloat(json.data.minesAuto.amount);
 			lastBet.payoutMultiplier = json.data.minesAuto.multiplier;
-			//lastBet.Roll = json.data.minesAuto.state.result;
+			lastBet.Roll = json.data.minesAuto.shuffleOriginalActions[0].action.mines.minesResult;
 			lastBet.payout = parseFloat(json.data.minesAuto.payout);
-			//lastBet.target = json.data.primediceRoll.state.target;
+			lastBet.target = json.data.minesAuto.shuffleOriginalActions[0].action.mines.selected;
 			
 			let gameid = "mines"
 			var selectedfields = json.data.minesAuto.shuffleOriginalActions[0].action.mines.selected;
