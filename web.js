@@ -1255,9 +1255,9 @@ function outseed(json){
 function userBalances(){
 token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).auth).accessToken
 var body = {
-	"operationName": "GetMyProfile",
-	"variables": {},
-	"query": "query GetMyProfile {\n  me {\n    id\n    username\n    email\n    emailVerifiedAt\n    vipLevel\n    otpSentAt\n    updatedAt\n    createdAt\n    passwordUpdatedAt\n    anonymous\n    avatar\n    avatarBackground\n    linkedOauthProviders\n    verificationMethod\n    loginVerificationMethod\n    chatBanUntil\n    xp\n    language\n    intercomToken\n    currentSession {\n      id\n      ip\n      ua\n      os\n      device\n      browser\n      country\n      city\n      updatedAt\n      createdAt\n      refreshedAt\n      lastUsedAt\n      active\n      __typename\n    }\n    account {\n      id\n      balances {\n        currency\n        amount\n        __typename\n      }\n      vaultBalances {\n        currency\n        amount\n        __typename\n      }\n      __typename\n    }\n    raceInfo {\n      id\n      startingWager\n      rank\n      raceEntryId\n      __typename\n    }\n    __typename\n  }\n}"
+    "operationName": "GetMyProfile",
+    "variables": {},
+    "query": "query GetMyProfile {\n  me {\n    id\n    username\n    email\n    emailVerifiedAt\n    vipLevel\n    otpSentAt\n    updatedAt\n    createdAt\n    passwordUpdatedAt\n    anonymous\n    avatar\n    avatarBackground\n    linkedOauthProviders\n    verificationMethod\n    loginVerificationMethod\n    chatBanUntil\n    xp\n    language\n    marketingConsentEnabled\n    acceptOddsChange: sportsAcceptOddsChange\n    intercomToken\n    withdrawalModeOnly\n    currentSession {\n      id\n      ip\n      ua\n      os\n      device\n      browser\n      country\n      city\n      updatedAt\n      createdAt\n      refreshedAt\n      lastUsedAt\n      active\n      __typename\n    }\n    account {\n      id\n      balances {\n        currency\n        amount: availableAmount\n        __typename\n      }\n      vaultBalances {\n        currency\n        amount\n        __typename\n      }\n      __typename\n    }\n    raceInfo {\n      id\n      startingWager\n      rank\n      raceEntryId\n      __typename\n    }\n    __typename\n  }\n}"
 }
 		
 	
