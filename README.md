@@ -8,6 +8,8 @@ install extension: https://vimeo.com/954086250 <br />
 # Info: <br />
 Please favourite the repo in case you liked/used it. Thank you!
 
+<b>Donate:</b> https://ko-fi.com/poky
+
 <b>Discord</b>: fisk_992 <br />
 <b>Stake</b>: poky1084 <br />
 <b>Telegram:</b>: @poky_1084
