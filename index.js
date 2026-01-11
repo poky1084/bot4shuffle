@@ -278,7 +278,7 @@ if (localStorage.getItem("themebot") != null) {
 userCoins();
 userBalances();
 startScoket();
-startCrash();
+//startCrash();
 
 
 	const isMobile = navigator.maxTouchPoints > 2;
