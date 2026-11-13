@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "bot4shuffle",
     "description": "a javascript casino bot",
-    "version": "1.0.0.0",
+    "version": "1.1.0.0",
     "icons": {
         "128": "shuffle.png"
     },
@@ -10,24 +10,27 @@
     "action": {
         "default_title": "bot4shuffle"
     },
-    "permissions": [],
-    "host_permissions": [
-        "*://*/*"
-    ],
-    "background": {
-    },
-    "content_scripts": [{
-        "js": ["index.js", "js/codemirror.min.js", "js/canvasjs.min.js", "js/javascript.min.js"],
-        "matches": ["https://shuffle.com/*", "https://shuffle.bet/*", "https://shuffle.game/*"],
-		"run_at": "document_end"
-    }],
+     "permissions": ["webNavigation", "scripting", "tabs", "activeTab"],
+  "host_permissions": ["https://shuffle.game/*", "https://shuffle.com/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_title": "bot4shuffle"
+  },
 	"web_accessible_resources": [
-    {
-      "resources": [ "js/codemirror.min.js", "js/canvasjs.min.js", "js/javascript.min.js" ],
-      "matches": [ "https://*/*" ]
-    }
+	{
+	  "resources": [
+      "index.js",
+      "inject.js",
+      "js/*.js"
+    ],
+	  "matches": [ "https://*/*" ]
+	}
 	],
 	"content_security_policy": {
 		"extension_pages": "script-src 'self'; object-src 'self';"
-	}
+  }
 }
